@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>世外桃源 Paradise Beyond</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Teko:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+    
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: "#f97316", // Orange 500
+                hover: "#ea580c",   // Orange 600
+                light: "#fb923c",   // Orange 400
+                dark: "#c2410c",    // Orange 700
+              },
+              secondary: {
+                DEFAULT: "#78350f", // Amber 900
+                hover: "#92400e",   // Amber 800
+                light: "#b45309",   // Amber 700
+              },
+              accent: {
+                DEFAULT: "#f59e0b", // Amber 500
+                light: "#fbbf24",   // Amber 400
+              },
+              surface: {
+                DEFAULT: "#fff7ed", // Orange 50
+                alt: "#ffedd5",     // Orange 100
+                dark: "#292524",    // Stone 800
+              },
+              brown: {
+                dark: "#431407",    // Deep Brown
+                earth: "#5d4037",   // Brown 700
+              },
+              earth: {
+                50: '#fffaf5',
+                100: '#fff2e5',
+                200: '#ffe4c8',
+                300: '#fdcea0',
+                400: '#dcb080',
+                500: '#b45309',
+                600: '#92400e',
+                700: '#713f12',
+                800: '#552e0c',
+                900: '#431407',
+                950: '#280c04',
+              }
+            },
+            fontFamily: {
+              display: ["Teko", "Roboto Condensed", "sans-serif"],
+              body: ["Noto Sans TC", "sans-serif"],
+            },
+            backgroundImage: {
+                'grid-pattern': "linear-gradient(to right, rgba(254, 215, 170, 0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(254, 215, 170, 0.5) 1px, transparent 1px)",
+                'dot-pattern': "radial-gradient(#fdba74 1px, transparent 1px)",
+                'tech-grid': "linear-gradient(to right, rgba(124, 45, 18, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(124, 45, 18, 0.03) 1px, transparent 1px)",
+            },
+            backgroundSize: {
+                'grid-pattern': '40px 40px',
+                'dot-pattern': '20px 20px',
+            },
+            animation: {
+              'shimmer': 'shimmer 2s infinite',
+            },
+            keyframes: {
+              shimmer: {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(100%)' },
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .clip-diagonal {
+          clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 0 100%);
+        }
+        .clip-tech-btn {
+          clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        }
+        .clip-tag {
+          clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+        }
+        .clip-tactical {
+            clip-path: polygon(
+                10px 0, 100% 0, 
+                100% calc(100% - 10px), calc(100% - 10px) 100%, 
+                0 100%, 0 10px
+            );
+        }
+        .text-glow {
+          text-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+      }
+      
+      body {
+        font-family: 'Noto Sans TC', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6, .font-display {
+        font-family: 'Teko', 'Roboto Condensed', sans-serif;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-surface text-brown-dark antialiased selection:bg-primary selection:text-white">
+    <div id="root"></div>
+  </body>
+</html>
