@@ -69,6 +69,7 @@ const News: React.FC = () => {
                  category="GAMEPLAY"
                  date="2024.05.18"
                  image="https://cdn.discordapp.com/attachments/1450006816875479163/1450837081294110780/ABS2GSmgIrSH8CJhAUI02m4E6-3LRR3xmgBQeX8g8yVCVIFn4OHPtO5g_VYRiL2pYXIIgEL4tTlUAcVAXNAYJUlNj-j8YrpVwvQOA98F9tyjynZCBTYAWsmcI6UGzNM0M-413DE1cBA5C7XNHxwk9om7MUPdqtBQ-1waPWkkXwTv3MQ1ZfWus1024-rj.png?ex=6943fcd3&is=6942ab53&hm=ae7cbb28e408ec3b3c9d8e488e64a44a0cc8b6d84b7848d6ca8817ad4d828d3c&"
+               />
                <ArticleCard 
                  title="桃園石魂檔案室：龍岡眷村的時光印記"
                  category="ARCHIVE"
