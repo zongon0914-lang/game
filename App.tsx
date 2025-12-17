@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { MemoryRouter, Routes, Route, useLocation } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import GameIntro from './pages/GameIntro';
-import About from './pages/About';
-import News from './pages/News';
-import OnlineEvents from './pages/OnlineEvents';
-import Download from './pages/Download';
+import Navigation from './components/Navigation.tsx';
+import Footer from './components/Footer.tsx';
+import Home from './pages/Home.tsx';
+import GameIntro from './pages/GameIntro.tsx';
+import About from './pages/About.tsx';
+import News from './pages/News.tsx';
+import OnlineEvents from './pages/OnlineEvents.tsx';
+import Download from './pages/Download.tsx';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
