@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
@@ -24,8 +23,15 @@ const Navigation: React.FC = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled || isMobileMenuOpen 
           ? 'bg-surface/95 backdrop-blur-md border-b border-primary/20 shadow-sm py-2' 
@@ -51,11 +57,7 @@ const Navigation: React.FC = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-bold tracking-widest uppercase relative py-2 group transition-colors ${
-                isScrolled ? 'text-stone-600 hover:text-primary' : 'text-white/90 hover:text-white'
-              } ${isActive(link.path) ? 'text-primary' : ''}`}
-            >
-              {link.name}
+@@ -59,51 +66,53 @@ const Navigation: React.FC = () => {
               <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ${isActive(link.path) ? 'scale-x-100' : ''}`}></span>
             </Link>
           ))}
@@ -81,24 +83,26 @@ const Navigation: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-surface z-40 flex flex-col pt-24 px-6 pb-24 overflow-y-auto max-h-screen lg:hidden">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="text-2xl font-display font-bold text-stone-800 py-4 border-b border-stone-200 hover:text-primary transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-             <Link
-                to="/download"
-                className="mt-8 w-full bg-primary text-white text-center font-bold py-4 clip-tech-btn"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                下載遊戲
-              </Link>
+          <div className="fixed inset-0 z-40 flex flex-col min-h-screen bg-surface pt-24 pb-28 px-6 overflow-y-auto lg:hidden">
+            <div className="flex-1 space-y-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="block text-2xl font-display font-bold text-stone-800 py-4 border-b border-stone-200 hover:text-primary transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+            <Link
+              to="/download"
+              className="mt-6 w-full bg-primary text-white text-center font-bold py-4 clip-tech-btn shadow-md"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              下載遊戲
+            </Link>
           </div>
         )}
       </div>
