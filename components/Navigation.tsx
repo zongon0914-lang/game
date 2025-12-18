@@ -167,7 +167,7 @@ function Navigation(): React.ReactElement {
         <nav
           id="mobile-menu"
           aria-label="行動版導覽"
-          className={`lg:hidden fixed top-0 left-0 z-[50] h-full w-[85%] max-w-sm bg-surface/95 backdrop-blur-md shadow-2xl border-r border-white/10 py-24 px-7 flex flex-col gap-8 transition-transform duration-300 ease-out ${
+         className={`lg:hidden fixed top-0 left-0 z-[50] h-full w-[85%] max-w-sm bg-gradient-to-b from-stone-900/95 via-stone-900/90 to-primary/80 backdrop-blur-lg shadow-2xl border-r border-primary/30 py-24 px-7 flex flex-col gap-8 transition-transform duration-300 ease-out text-white ${
             isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
@@ -177,15 +177,17 @@ function Navigation(): React.ReactElement {
                 key={link.path}
                 to={link.path}
                 onClick={closeMenu}
-                className={`block rounded-xl p-4 transition-all duration-200 border border-transparent hover:border-primary/40 hover:shadow-primary/10 hover:shadow-lg ${
-                  isActive(link.path) ? 'bg-primary/10 border-primary/40 shadow-lg shadow-primary/20' : 'bg-white/40'
+                 className={`block rounded-xl p-4 transition-all duration-200 border border-transparent hover:border-primary/60 hover:shadow-primary/20 hover:shadow-lg ${
+                  isActive(link.path)
+                    ? 'bg-primary/20 border-primary/60 shadow-lg shadow-primary/30'
+                    : 'bg-white/10'
                 }`}
               >
-                <div className="flex items-center justify-between text-stone-900">
-                  <span className="text-xl font-display font-bold tracking-[0.18em] uppercase">{link.name}</span>
+                <div className="flex items-center justify-between text-white">
+                  <span className="text-xl font-display font-bold tracking-[0.18em] uppercase drop-shadow">{link.name}</span>
                   <span className="material-symbols-outlined text-primary">trending_flat</span>
                 </div>
-                {link.hint && <p className="mt-2 text-sm text-stone-600 leading-relaxed">{link.hint}</p>}
+                {link.hint && <p className="mt-2 text-sm text-white/80 leading-relaxed">{link.hint}</p>}
               </Link>
             ))}
           </div>
