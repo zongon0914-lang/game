@@ -81,7 +81,7 @@ const Navigation: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-surface z-40 flex flex-col pt-24 px-6 lg:hidden">
+          <div className="fixed inset-0 bg-surface z-40 flex flex-col pt-24 px-6 pb-24 overflow-y-auto max-h-screen lg:hidden">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
