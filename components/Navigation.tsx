@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const Navigation: React.FC = () => {
+export default function Navigation(): JSX.Element {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -139,4 +139,4 @@ const Navigation: React.FC = () => {
       </div>
     </header>
   );
-};
+}
