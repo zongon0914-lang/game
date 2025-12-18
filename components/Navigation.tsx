@@ -167,7 +167,9 @@ function Navigation(): React.ReactElement {
         <nav
           id="mobile-menu"
           aria-label="行動版導覽"
-         className={`lg:hidden fixed top-0 left-0 z-[50] h-full w-[85%] max-w-sm bg-gradient-to-b from-stone-950 via-stone-900 to-primary/85 backdrop-blur-2xl shadow-2xl border-r border-primary/40 py-24 px-7 flex flex-col gap-8 transition-transform duration-300 ease-out text-white ${
+          // 修改處 1: z-[50] 改為 z-[100] 確保在最上層
+          // 修改處 2: 背景改為 solid 的深色 (bg-stone-900)，移除透明度高的 gradient 設定，確保不透光
+          className={`lg:hidden fixed top-0 left-0 z-[100] h-full w-[85%] max-w-sm bg-stone-900 shadow-2xl border-r border-primary/40 py-24 px-7 flex flex-col gap-8 transition-transform duration-300 ease-out text-white ${
             isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
@@ -177,17 +179,18 @@ function Navigation(): React.ReactElement {
                 key={link.path}
                 to={link.path}
                 onClick={closeMenu}
-                  className={`block rounded-xl p-4 transition-all duration-200 border border-transparent hover:border-primary/60 hover:shadow-primary/20 hover:shadow-lg ${
+                // 修改處 3 (選用): 調整按鈕的背景顏色，讓它在深色背景上更清楚
+                className={`block rounded-xl p-4 transition-all duration-200 border border-transparent hover:border-primary/60 hover:shadow-primary/20 hover:shadow-lg ${
                   isActive(link.path)
                     ? 'bg-primary/20 border-primary/60 shadow-lg shadow-primary/30'
-                    : 'bg-white/10'
+                    : 'bg-white/5' // 稍微調暗未選中的背景
                 }`}
               >
-                 <div className="flex items-center justify-between text-white">
+                <div className="flex items-center justify-between text-white">
                   <span className="text-xl font-display font-bold tracking-[0.18em] uppercase drop-shadow">{link.name}</span>
                   <span className="material-symbols-outlined text-primary">trending_flat</span>
                 </div>
-                {link.hint && <p className="mt-2 text-sm text-white/80 leading-relaxed">{link.hint}</p>}
+                {link.hint && <p className="mt-2 text-sm text-gray-400 leading-relaxed">{link.hint}</p>} 
               </Link>
             ))}
           </div>
@@ -203,7 +206,7 @@ function Navigation(): React.ReactElement {
             </Link>
             <button
               onClick={closeMenu}
-              className="w-full text-center text-sm text-stone-600 hover:text-stone-800 transition-colors"
+              className="w-full text-center text-sm text-stone-400 hover:text-stone-200 transition-colors"
             >
               以 ESC 關閉選單
             </button>
