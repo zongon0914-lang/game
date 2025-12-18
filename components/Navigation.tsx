@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-export default function Navigation() {
+const navLinks = [
+  { name: '首頁', path: '/' },
+  { name: '遊戲介紹', path: '/intro' },
+  { name: '關於我們', path: '/about' },
+  { name: '最新消息', path: '/news' },
+  { name: '線上活動', path: '/events' },
+];
+
+function Navigation(): React.ReactElement {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -13,14 +21,6 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navLinks = [
-    { name: '首頁', path: '/' },
-    { name: '遊戲介紹', path: '/intro' },
-    { name: '關於我們', path: '/about' },
-    { name: '最新消息', path: '/news' },
-    { name: '線上活動', path: '/events' },
-  ];
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -139,4 +139,7 @@ export default function Navigation() {
       </div>
     </header>
   );
-}
+};
+
+export default Navigation;
+export { Navigation };
