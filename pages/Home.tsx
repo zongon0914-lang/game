@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+const dragonHeroImage =
+  'https://cdn.discordapp.com/attachments/1450006816875479163/1450837935950790716/image.png?ex=6943fd9f&is=6942ac1f&hm=a444590a122725b743446ff9cc5bc02b64bcb71a5e7c81c20fdc86e30199658a&';
+
 const Home: React.FC = () => {
   return (
     <div className="bg-surface">
       <section className="relative h-screen min-h-[700px] flex items-center justify-center pt-20 overflow-hidden bg-stone-900">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://cdn.discordapp.com/attachments/1450006816875479163/1450837935950790716/image.png?ex=6943fd9f&is=6942ac1f&hm=a444590a122725b743446ff9cc5bc02b64bcb71a5e7c81c20fdc86e30199658a&" 
-            alt="Hero Background - Dragon and Lanterns" 
+          <img
+            src={dragonHeroImage}
+            alt="Hero Background - Dragon and Lanterns"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/30"></div>
@@ -40,6 +43,17 @@ const Home: React.FC = () => {
               <span className="material-symbols-outlined group-hover:scale-110 transition-transform">sports_esports</span>
             </Link>
           </div>
+          <figure className="mt-16 w-full max-w-6xl mx-auto rounded-3xl overflow-hidden border border-white/15 bg-white/5 backdrop-blur-lg shadow-[0_25px_80px_rgba(0,0,0,0.35)]">
+            <img
+              src={dragonHeroImage}
+              alt="青龍穿梭在燈籠街巷上空的主視覺"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <figcaption className="px-6 py-4 text-sm text-white/80 bg-gradient-to-r from-black/50 to-black/30">
+              世外桃源《光之碎片》主視覺：青龍指引四名冒險者穿梭桃園的燈籠街巷。
+            </figcaption>
+          </figure>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-surface to-transparent pointer-events-none"></div>
       </section>
@@ -88,7 +102,7 @@ const Home: React.FC = () => {
                 <div className="absolute top-4 left-0 bg-secondary text-white text-xs font-bold px-4 py-1 uppercase tracking-wider z-10 clip-tag shadow-lg">
                   核心願景
                 </div>
-                <img alt="Taoyuan city dragon" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://cdn.discordapp.com/attachments/1450006816875479163/1450837935950790716/image.png?ex=6943fd9f&is=6942ac1f&hm=a444590a122725b743446ff9cc5bc02b64bcb71a5e7c81c20fdc86e30199658a&" />
+                <img alt="Taoyuan city dragon" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src={dragonHeroImage} />
                 <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-secondary/20 transition-colors duration-300 mix-blend-overlay"></div>
               </div>
               <div className="p-8 flex-1 flex flex-col bg-white">
@@ -114,78 +128,3 @@ const Home: React.FC = () => {
               </div>
               <div className="p-8 flex-1 flex flex-col bg-white">
                 <div className="flex items-center gap-2 mb-3 text-stone-600 text-xs font-bold uppercase tracking-wider">
-                  <span className="material-symbols-outlined text-sm">event</span> 限時活動
-                </div>
-                <h3 className="text-2xl font-display font-bold text-stone-900 mb-3 leading-tight group-hover:text-stone-600 transition-colors">收集「光之碎片」</h3>
-                <p className="text-stone-500 mb-6 text-sm leading-relaxed line-clamp-3 flex-1">
-                  線索散落在桃園的各個角落。快上街尋找遺失的碎片，收集碎片修復破碎的傳說鏡面，解開隱藏謎題，喚醒沉睡力量。
-                </p>
-                <Link to="/events" className="inline-flex items-center font-bold text-sm uppercase tracking-wider text-stone-900 group-hover:text-stone-600 transition-colors">
-                  活動詳情 <span className="material-symbols-outlined ml-1 text-lg group-hover:translate-x-1 transition-transform">chevron_right</span>
-                </Link>
-              </div>
-            </article>
-          </div>
-          <div className="mt-10 text-center md:hidden">
-            <Link to="/news" className="inline-flex items-center gap-2 justify-center w-full px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white font-bold transition-all uppercase tracking-wider text-sm clip-tech-btn">
-              查看所有新聞
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-32 relative bg-white border-t border-primary/10">
-        <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-l from-surface-alt/50 to-transparent pointer-events-none"></div>
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-24 h-64 bg-primary/10 clip-tech-btn hidden lg:block border-l-4 border-primary"></div>
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-1/3 order-2 lg:order-1">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-8 h-[2px] bg-secondary"></span>
-                <span className="text-secondary font-bold tracking-widest uppercase text-sm">The Mind Map</span>
-              </div>
-              <h2 className="text-6xl font-display font-bold text-stone-900 mb-6 uppercase leading-none">
-                探索<br /><span className="text-primary">傳說網絡</span>
-              </h2>
-              <p className="text-stone-600 text-lg leading-relaxed mb-8">
-                《世外桃源》的世界與現實緊密相連。透過我們的互動式心智圖，查看傳說之間的關聯、您收集到的光之碎片，以及隱藏在城市街角的歷史記憶。每一個節點都是一個動人的故事。
-              </p>
-              <ul className="space-y-4 mb-10">
-                <li className="flex items-center gap-3 text-stone-700 font-medium">
-                  <span className="w-2 h-2 bg-primary rotate-45"></span> 完整桃園傳說資料庫
-                </li>
-                <li className="flex items-center gap-3 text-stone-700 font-medium">
-                  <span className="w-2 h-2 bg-primary rotate-45"></span> 實境解謎 (ARG) 地點導航
-                </li>
-                <li className="flex items-center gap-3 text-stone-700 font-medium">
-                  <span className="w-2 h-2 bg-primary rotate-45"></span> 在地文化與景點深度解析
-                </li>
-              </ul>
-              <Link to="/intro" className="inline-flex items-center gap-2 bg-stone-900 hover:bg-primary text-white font-bold font-display text-xl py-4 px-10 uppercase tracking-widest transition-all duration-200 clip-tech-btn shadow-xl hover:shadow-primary/40 group">
-                進入傳說資料庫
-                <span className="material-symbols-outlined group-hover:rotate-45 transition-transform duration-300">hub</span>
-              </Link>
-            </div>
-            <div className="lg:w-2/3 order-1 lg:order-2 relative">
-              <div className="relative rounded-lg overflow-hidden shadow-2xl border-4 border-stone-100 group bg-stone-900">
-                <img alt="Mind map of game structure" className="w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-105" src="https://cdn.discordapp.com/attachments/1450006816875479163/1450839661051121724/ABS2GSmCCQbCxRaXtjk52QyELa0gaSRpHLP1w-KQP9IZJ0JjQKZyYNjva6Q6y7afA8zEzbd_fm2s-sg7qeqdqxLtfefORz9JTb9SkIHpAdBXM42uGzEfRGebaDGZ9MhdgiV0IHEXEy3371pTXCVXgRt4LvOAlBY_eVU4zYJxKdWjSoUJoRZUIAs1024-rj.png?ex=6943ff3a&is=6942adba&hm=e269a602b9b27415bf57059a1de547aa0c307412905818d98295ffa86cf6eddd&" />
-                <div className="absolute top-4 right-4 flex gap-2">
-                  <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                </div>
-                <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur px-4 py-2 text-white font-mono text-xs border-l-2 border-primary">
-                  Status: CONNECTED<br />
-                  Legends Found: 1,024
-                </div>
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-primary/20 -z-10 rounded-lg bg-primary/5"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-};
-
-export default Home;
