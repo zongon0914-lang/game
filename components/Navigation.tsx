@@ -1,3 +1,4 @@
+@@ -2,52 +2,59 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
