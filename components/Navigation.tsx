@@ -1,6 +1,3 @@
-+89
--34
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -128,41 +125,47 @@ export default function Navigation(): JSX.Element {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm lg:hidden">
-            <button
-              className="absolute inset-0 w-full h-full cursor-default"
-              aria-label="關閉選單"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-            <div className="absolute right-4 top-4 bottom-16 w-full max-w-sm bg-surface shadow-2xl rounded-3xl pt-16 pb-10 px-6 overflow-y-auto flex flex-col">
+          <div
+            className="fixed inset-0 z-[60] bg-black/35 backdrop-blur-sm lg:hidden flex justify-end"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <div
+              className="relative w-full max-w-sm mt-4 mb-10 mr-0 pointer-events-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
               <button
-                className="absolute top-4 right-4 flex items-center gap-2 px-4 py-2 rounded-full bg-stone-100 text-stone-700 hover:text-primary hover:bg-primary/10 font-display font-bold tracking-[0.15em] shadow"
+                className="absolute -top-3 right-4 flex items-center gap-1 text-stone-100 bg-black/60 hover:bg-black/70 rounded-full px-3 py-2 shadow-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
                 aria-label="返回"
               >
                 <span className="material-symbols-outlined text-xl">arrow_back</span>
-                <span>返回</span>
+                <span className="text-sm font-display font-bold tracking-[0.2em]">返回</span>
               </button>
-              <p className="text-lg font-display font-bold text-stone-800 mb-6">選單</p>
-              <div className="flex-1 space-y-2">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className="block text-2xl font-display font-bold text-stone-800 py-4 border-b border-stone-200 hover:text-primary transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+
+              <div className="h-[82vh] max-h-[82vh] bg-surface shadow-2xl rounded-l-3xl pt-14 pb-12 px-6 overflow-y-auto flex flex-col">
+                <div className="flex items-center justify-between mb-6">
+                  <p className="text-lg font-display font-bold text-stone-800">選單</p>
+                </div>
+                <div className="flex-1 space-y-2">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className="block text-2xl font-display font-bold text-stone-800 py-4 border-b border-stone-200 hover:text-primary transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+                <Link
+                  to="/download"
+                  className="mt-6 w-full bg-primary text-white text-center font-bold py-4 clip-tech-btn shadow-md"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  下載遊戲
+                </Link>
               </div>
-              <Link
-                to="/download"
-                className="mt-6 w-full bg-primary text-white text-center font-bold py-4 clip-tech-btn shadow-md"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                下載遊戲
-              </Link>
             </div>
           </div>
         )}
