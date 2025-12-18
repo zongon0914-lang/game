@@ -1,32 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { name: '首頁', path: '/', icon: 'home' },
-  { name: '遊戲介紹', path: '/intro', icon: 'stadia_controller' },
-  { name: '關於我們', path: '/about', icon: 'groups' },
-  { name: '最新消息', path: '/news', icon: 'auto_stories' },
-  { name: '線上活動', path: '/events', icon: 'campaign' },
+  { name: '首頁', path: '/' },
+  { name: '遊戲介紹', path: '/intro', hint: '世界觀與核心玩法' },
+  { name: '關於我們', path: '/about', hint: '團隊與故事' },
+  { name: '最新消息', path: '/news', hint: '更新與公告' },
+  { name: '線上活動', path: '/events', hint: '即時精彩活動' },
 ];
 
 function Navigation(): React.ReactElement {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
   const location = useLocation();
 
+  const isActive = useMemo(() => (path: string) => location.pathname === path, [location.pathname]);
+
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isActive = (path: string) => location.pathname === path;
-
   useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+        toggleButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
@@ -35,7 +42,10 @@ function Navigation(): React.ReactElement {
     };
   }, [isMobileMenuOpen]);
 
-  const burgerLine = 'block h-0.5 w-6 bg-current rounded-full transition-all duration-300';
+  const closeMenu = () => {
+    setIsMobileMenuOpen(false);
+    toggleButtonRef.current?.focus();
+  };
 
   return (
     <header
@@ -46,7 +56,7 @@ function Navigation(): React.ReactElement {
       }`}
     >
       <div
-        className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary shadow-[0_0_10px_rgba(249,115,22,0.5)] transition-opacity duration-300 ${
+        className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary shadow-[0_0_10px_rgba(24,115,22,0.5)] transition-opacity duration-300 ${
           isScrolled ? 'opacity-100' : 'opacity-0'
         }`}
       ></div>
@@ -62,7 +72,29 @@ function Navigation(): React.ReactElement {
                 isScrolled || isMobileMenuOpen ? 'text-stone-900' : 'text-white'
               }`}
             >
-@@ -82,64 +88,121 @@ function Navigation(): React.ReactElement {
+              世外桃源
+            </span>
+            <span
+              className={`text-[0.6rem] font-bold tracking-[0.2em] uppercase transition-colors ${
+                isScrolled || isMobileMenuOpen ? 'text-stone-500' : 'text-white/70'
+              }`}
+            >
+              Paradise Beyond
+            </span>
+          </div>
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center space-x-8" aria-label="主要導覽">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`relative text-base font-display tracking-[0.2em] uppercase transition-colors duration-200 pb-2 group ${
+                isActive(link.path)
+                  ? 'text-primary'
+                  : isScrolled
+                    ? 'text-stone-700 hover:text-primary'
                     : 'text-white hover:text-primary'
               }`}
             >
@@ -88,99 +120,97 @@ function Navigation(): React.ReactElement {
 
         {/* Mobile Toggle */}
         <button
-          className={`lg:hidden z-50 p-2 rounded-full border transition-all duration-300 flex flex-col items-center justify-center gap-1.5 ${
+          ref={toggleButtonRef}
+          className={`lg:hidden z-50 relative h-12 w-12 rounded-full border border-white/10 backdrop-blur-sm flex items-center justify-center transition-all duration-200 ${
             isScrolled || isMobileMenuOpen
-              ? 'text-stone-800 border-stone-200 bg-white/80 backdrop-blur'
-              : 'text-white border-white/40 hover:border-white'
+              ? 'bg-white text-stone-900 shadow-md hover:shadow-lg'
+              : 'bg-white/10 text-white hover:bg-white/20'
           }`}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-expanded={isMobileMenuOpen}
-          aria-label="Toggle navigation menu"
+          aria-controls="mobile-menu"
+          aria-label="切換選單"
         >
+          <span className="sr-only">切換導覽</span>
           <span
-            className={`${burgerLine} ${
-              isMobileMenuOpen ? 'translate-y-1.5 rotate-45' : ''
+            aria-hidden
+            className={`absolute block h-[2px] w-6 rounded-full bg-current transition-transform duration-300 ease-out ${
+              isMobileMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-2'
             }`}
-          ></span>
+          />
           <span
-            className={`${burgerLine} ${
-              isMobileMenuOpen ? 'opacity-0' : ''
+            aria-hidden
+            className={`absolute block h-[2px] w-6 rounded-full bg-current transition-opacity duration-300 ease-out ${
+              isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
             }`}
-          ></span>
+          />
           <span
-            className={`${burgerLine} ${
-              isMobileMenuOpen ? '-translate-y-1.5 -rotate-45' : ''
+            aria-hidden
+            className={`absolute block h-[2px] w-6 rounded-full bg-current transition-transform duration-300 ease-out ${
+              isMobileMenuOpen ? 'translate-y-0 -rotate-45' : 'translate-y-2'
             }`}
-          ></span>
+          />
         </button>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="fixed inset-0 z-[60] lg:hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-brown-950/80 via-surface/90 to-surface" aria-hidden></div>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(249,115,22,0.15),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(244,114,182,0.12),transparent_30%),radial-gradient(circle_at_40%_70%,rgba(59,130,246,0.1),transparent_30%)]" aria-hidden></div>
+        <div
+          className={`lg:hidden fixed inset-0 z-[45] transition-opacity duration-300 ${
+            isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+        >
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-black/70 via-stone-900/70 to-primary/40 backdrop-blur-md"
+            onClick={closeMenu}
+          ></div>
+        </div>
 
-            <div className="relative h-full flex flex-col gap-8 pt-24 pb-16 px-6 overflow-y-auto">
-              <div className="flex items-center justify-between text-white/80">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.35em]">Menu</p>
-                  <p className="text-2xl font-display font-bold text-white">探索世外桃源</p>
+        <nav
+          id="mobile-menu"
+          aria-label="行動版導覽"
+          className={`lg:hidden fixed top-0 left-0 z-[50] h-full w-[85%] max-w-sm bg-surface/95 backdrop-blur-md shadow-2xl border-r border-white/10 py-24 px-7 flex flex-col gap-8 transition-transform duration-300 ease-out ${
+            isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
+        >
+          <div className="space-y-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={closeMenu}
+                className={`block rounded-xl p-4 transition-all duration-200 border border-transparent hover:border-primary/40 hover:shadow-primary/10 hover:shadow-lg ${
+                  isActive(link.path) ? 'bg-primary/10 border-primary/40 shadow-lg shadow-primary/20' : 'bg-white/40'
+                }`}
+              >
+                <div className="flex items-center justify-between text-stone-900">
+                  <span className="text-xl font-display font-bold tracking-[0.18em] uppercase">{link.name}</span>
+                  <span className="material-symbols-outlined text-primary">trending_flat</span>
                 </div>
-                <span className="material-symbols-outlined text-3xl animate-pulse">swipe_up</span>
-              </div>
-
-              <div className="bg-white/90 backdrop-blur-xl rounded-3xl border border-white/50 shadow-2xl shadow-primary/10 p-6 space-y-3">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`group flex items-center justify-between rounded-2xl px-4 py-4 transition-all duration-300 border ${
-                      isActive(link.path)
-                        ? 'bg-primary/10 border-primary/40 text-primary'
-                        : 'bg-white/70 border-stone-200 text-stone-800 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10'
-                    }`}
-                  >
-                    <div className="flex items-center gap-4">
-                      <span className="material-symbols-outlined text-2xl bg-primary/10 text-primary rounded-xl p-2">{link.icon}</span>
-                      <div className="flex flex-col">
-                        <span className="font-display text-xl font-bold tracking-[0.15em] uppercase">{link.name}</span>
-                        <span className="text-sm text-stone-500">立即前往</span>
-                      </div>
-                    </div>
-                    <span className="material-symbols-outlined text-2xl text-primary transition-transform duration-300 group-hover:translate-x-1">
-                      trending_flat
-                    </span>
-                  </Link>
-                ))}
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-[1.1fr_1fr]">
-                <Link
-                  to="/download"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full bg-gradient-to-r from-primary to-primary-hover text-white text-center font-display font-bold text-xl tracking-[0.15em] uppercase py-4 px-6 clip-tech-btn shadow-lg shadow-primary/30 flex items-center justify-center gap-3"
-                >
-                  <span className="material-symbols-outlined text-2xl">download</span>
-                  立即下載遊戲
-                </Link>
-                <div className="rounded-2xl border border-white/60 bg-white/70 backdrop-blur p-4 flex items-center gap-4 shadow-inner shadow-white/60">
-                  <div className="bg-primary/10 text-primary rounded-xl p-3">
-                    <span className="material-symbols-outlined text-2xl">sparkles</span>
-                  </div>
-                  <div>
-                    <p className="text-sm text-stone-500">專屬行動版體驗</p>
-                    <p className="text-base font-semibold text-stone-800">邊探索邊收藏你的冒險日誌</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+                {link.hint && <p className="mt-2 text-sm text-stone-600 leading-relaxed">{link.hint}</p>}
+              </Link>
+            ))}
           </div>
-        )}
+
+          <div className="mt-auto space-y-3">
+            <Link
+              to="/download"
+              onClick={closeMenu}
+              className="flex items-center justify-between rounded-2xl bg-primary text-white px-5 py-4 font-display font-bold tracking-[0.2em] uppercase shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-200"
+            >
+              <span>立即下載</span>
+              <span className="material-symbols-outlined">download</span>
+            </Link>
+            <button
+              onClick={closeMenu}
+              className="w-full text-center text-sm text-stone-600 hover:text-stone-800 transition-colors"
+            >
+              以 ESC 關閉選單
+            </button>
+          </div>
+        </nav>
       </div>
     </header>
   );
-};
+}
 
 export default Navigation;
 export { Navigation };
