@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>關於我們 | 世外桃源 Paradise Beyond</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF9800",
+              secondary: "#795548",
+              "brown-dark": "#3b1d0a",
+              "brown-earth": "#5C4033",
+              surface: "#FAFAFA",
+              "surface-alt": "#F5F5F5",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Noto Sans TC", sans-serif;
+      }
+      .clip-diagonal {
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+      }
+      .clip-diagonal-top {
+        clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);
+      }
+    </style>
+  </head>
+
+  <body class="bg-surface text-brown-dark min-h-screen pt-24">
+    <!-- 導覽列 -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md text-white flex justify-between items-center px-6 py-4"
+    >
+      <a href="index.html" class="text-2xl font-bold tracking-widest"
+        >世外桃源</a
+      >
+      <nav class="space-x-6 uppercase text-sm">
+        <a href="intro.html" class="hover:text-primary">遊戲介紹</a>
+        <a href="about.html" class="text-primary font-bold">關於我們</a>
+        <a href="news.html" class="hover:text-primary">最新消息</a>
+        <a href="events.html" class="hover:text-primary">線上活動</a>
+        <a
+          href="download.html"
+          class="bg-primary text-white px-3 py-1 rounded hover:bg-orange-600"
+          >立即下載</a
+        >
+      </nav>
+    </header>
+
+    <!-- 頁面標題 -->
+    <div class="text-center mb-20 relative z-10 px-4">
+      <div class="inline-flex flex-col items-center animate-fade-in-up">
+        <span
+          class="py-1 px-4 border border-secondary/30 text-secondary text-xs font-bold tracking-[0.4em] uppercase mb-4 bg-white/50 backdrop-blur-sm shadow-sm"
+          >SANGZI STUDIO</span
+        >
+        <h1
+          class="text-7xl md:text-9xl font-bold uppercase tracking-widest text-brown-dark drop-shadow-sm"
+        >
+          <span class="text-primary relative inline-block">
+            關於
+            <span
+              class="absolute -top-4 -right-4 text-sm text-secondary/40 font-mono tracking-tighter opacity-50"
+              >00</span
+            >
+          </span>
+          我們
+        </h1>
+        <div class="flex items-center justify-center gap-6 mt-6">
+          <div class="h-[1px] w-16 bg-gradient-to-r from-transparent to-secondary"></div>
+          <p
+            class="text-lg md:text-xl text-brown-earth font-medium tracking-widest uppercase"
+          >
+            重塑文化敘事
+            <span class="text-primary px-2">•</span> 探索傳說邊界
+          </p>
+          <div class="h-[1px] w-16 bg-gradient-to-l from-transparent to-secondary"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto pb-20 px-4 md:px-6">
+      <!-- 核心理念 -->
+      <section class="mb-32">
+        <div
+          class="flex flex-col md:flex-row shadow-2xl rounded-sm overflow-hidden min-h-[600px]"
+        >
+          <!-- 文字 -->
+          <div
+            class="md:w-1/2 bg-[#E9E0D6] p-8 md:p-16 relative flex flex-col justify-center"
+          >
+            <div
+              class="absolute top-4 right-6 pointer-events-none opacity-10 text-white text-9xl font-bold"
+            >
+              01
+            </div>
+            <div class="relative z-10 mb-8">
+              <div class="flex items-center gap-3 mb-2">
+                <div
+                  class="w-10 h-10 rounded-md bg-white/60 flex items-center justify-center text-primary shadow-sm"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >psychology</span
+                  >
+                </div>
+                <div>
+                  <h2
+                    class="text-4xl font-bold text-brown-dark tracking-wide leading-none"
+                  >
+                    核心理念
+                  </h2>
+                  <p
+                    class="font-bold text-xs tracking-[0.2em] text-brown-earth uppercase"
+                  >
+                    Core Philosophy
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-8 relative z-10">
+              <p class="text-lg text-[#5D4037] font-medium leading-relaxed">
+                桑梓工作室以深度的互動體驗重新詮釋地方文化。我們的願景是讓古老的傳說在數位時代獲得新生，構建一個令人流連忘返的沈浸式世界。
+              </p>
+
+              <div class="pl-6 border-l-4 border-primary/80 py-2">
+                <p
+                  class="text-xl md:text-2xl text-[#4E342E] font-serif italic leading-relaxed"
+                >
+                  "桑梓，意即「家園」；我們主打的就是將家園的景色，或者故事；呈現於顧客們的眼中！"
+                </p>
+              </div>
+
+              <p class="text-lg text-[#5D4037] font-medium leading-relaxed">
+                我們致力於將桃園的文化敘事轉化為扣人心弦的互動旅程，透過「實境解謎（ARG）×
+                在地傳說數位轉譯」，打破時間與空間的界線。
+              </p>
+            </div>
+          </div>
+
+          <!-- 圖片輪播 -->
+          <div
+            class="md:w-1/2 bg-[#D7C8B6] relative overflow-hidden min-h-[400px]"
+          >
+            <img
+              id="hero-img"
+              src="https://cdn.discordapp.com/attachments/1450006816875479163/1450842823611121704/image.png"
+              alt="Core Philosophy"
+              class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-[#E9E0D6] to-transparent w-20 z-10"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 工作室介紹 -->
+      <section
+        class="relative md:grid md:grid-cols-2 md:gap-24 mb-24 items-center"
+      >
+        <div class="relative">
+          <div
+            class="relative h-64 w-full overflow-hidden clip-diagonal bg-stone-200 border-b border-primary/20 shadow-lg"
+          >
+            <img
+              alt="Sangzi Studio Team"
+              class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5xij92CEJBAg5PdlbiG-ib9l69xdXipNI5rFjM7VCgqKIZhvt8LAaf8f9rmYZ24I2N6H13bME17Jrltc8Qah3X9pHf9K2aG6Wdf3ry0uVV5C40R9XiZFKY30NqU-TtxkIfHYc8QkyVsrubJdJK3Xp1lKb0A3vyxEdwWg7EqKUNEeTDB3JVSGY8UQ6yV2H-04IX6uWjRRLGe0semK3oLqWHAB-bEvgqOyBXBZ9s2_TEHvaJ4dtSNfANSFqzOEX7i0b3lhgpg-CwLU"
+            />
+            <div class="absolute inset-0 bg-secondary/20 mix-blend-multiply"></div>
+          </div>
+          <div
+            class="bg-white p-8 md:p-10 relative border-x border-b border-primary/20 shadow-xl -mt-4 mx-4 z-10"
+          >
+            <div class="space-y-4">
+              <h3 class="font-bold text-xl flex items-center text-brown-dark">
+                <span class="w-1.5 h-6 bg-primary mr-3"></span>
+                實境解謎 × 傳說轉譯
+              </h3>
+              <p class="text-base leading-relaxed text-secondary font-medium">
+                桑梓工作室成立於 2024 年，專注於挖掘在地的文化寶藏。我們團隊由敘事設計師、程式開發者與文化研究員組成。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-left mt-10 md:mt-0">
+          <h2 class="text-5xl font-bold text-brown-dark mb-6">桑梓工作室</h2>
+          <p class="text-lg text-brown-earth mb-6">
+            我們是一群熱愛在地文化與創新科技的開發者。
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-brown-earth font-bold">
+              <span class="material-symbols-outlined text-primary"
+                >check_circle</span
+              >
+              專業的歷史考據與田野調查
+            </li>
+            <li class="flex items-center gap-3 text-brown-earth font-bold">
+              <span class="material-symbols-outlined text-primary"
+                >check_circle</span
+              >
+              創新的 ARG 實境遊戲設計
+            </li>
+            <li class="flex items-center gap-3 text-brown-earth font-bold">
+              <span class="material-symbols-outlined text-primary"
+                >check_circle</span
+              >
+              跨領域的技術整合團隊
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 加入我們 -->
+      <section class="text-center mt-12 relative px-4 z-10">
+        <div
+          class="max-w-4xl mx-auto bg-gradient-to-b from-white/90 to-surface-alt/90 backdrop-blur-md p-12 border border-primary/20 shadow-2xl clip-diagonal relative overflow-hidden"
+        >
+          <h3
+            class="text-5xl md:text-6xl font-bold mb-4 text-brown-dark uppercase tracking-wide"
+          >
+            加入我們
+          </h3>
+          <p
+            class="text-lg text-secondary mb-10 max-w-lg mx-auto font-medium leading-relaxed"
+          >
+            無論您是文史愛好者還是解謎高手，我們都期待您的聲音。
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#"
+              class="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden text-lg font-bold tracking-widest text-white uppercase transition-all duration-300 bg-primary hover:bg-secondary clip-diagonal shadow-lg"
+            >
+              <span class="mr-2">查看職缺</span>
+              <span class="material-symbols-outlined text-lg"
+                >arrow_forward</span
+              >
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="bg-black text-white text-center py-6 mt-20">
+      <p class="opacity-70 text-sm">
+        © 2025 世外桃源 Paradise Beyond — 桃園文化 ARG 專案
+      </p>
+    </footer>
+
+    <!-- 輪播腳本 -->
+    <script>
+      const heroImages = [
+        "https://cdn.discordapp.com/attachments/1450006816875479163/1450842823611121704/image.png",
+        "https://cdn.discordapp.com/attachments/1450006816875479163/1450837935950790716/image.png",
+        "https://cdn.discordapp.com/attachments/1450006816875479163/1450840493586911405/ABS2GSmOy2s2kfez75pb8I5NvssKCaR5Caof7ZSa4gFBz3JF1v6JnpYJGcFSUhNmnxk1ReEvEqjkz5yKxAcl8uWORuIMrM2RlKhCwRw31QZZwJlX9TU5h9JcKiTxJnxoAzofNXSIpGA6z06ic3NcpSZSZr2duzC0mOjsRGQNcpSvw2V_qFJRpgs1024-rj.png"
+      ];
+      let current = 0;
+      const img = document.getElementById("hero-img");
+
+      setInterval(() => {
+        current = (current + 1) % heroImages.length;
+        img.style.opacity = 0;
+        setTimeout(() => {
+          img.src = heroImages[current];
+          img.style.opacity = 1;
+        }, 500);
+      }, 5000);
+    </script>
+  </body>
+</html>

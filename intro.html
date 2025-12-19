@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>遊戲介紹 | 世外桃源 Paradise Beyond</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF9800",
+              secondary: "#795548",
+              accent: "#FACC15",
+              surface: "#FAFAFA",
+              "surface-alt": "#F5F5F5",
+              "brown-dark": "#3b1d0a",
+              "brown-earth": "#5C4033",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Noto Sans TC", sans-serif;
+      }
+      .clip-tactical {
+        clip-path: polygon(0 0, 100% 0, 96% 100%, 0% 100%);
+      }
+      .clip-diagonal-top {
+        clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);
+      }
+    </style>
+  </head>
+
+  <body class="bg-surface text-brown-earth">
+    <!-- 導覽列 -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md text-white flex justify-between items-center px-6 py-4"
+    >
+      <a href="index.html" class="text-2xl font-bold tracking-widest"
+        >世外桃源</a
+      >
+      <nav class="space-x-6 uppercase text-sm">
+        <a href="intro.html" class="text-primary font-bold">遊戲介紹</a>
+        <a href="about.html" class="hover:text-primary">關於我們</a>
+        <a href="news.html" class="hover:text-primary">最新消息</a>
+        <a href="events.html" class="hover:text-primary">線上活動</a>
+        <a
+          href="download.html"
+          class="bg-primary text-white px-3 py-1 rounded hover:bg-orange-600"
+          >立即下載</a
+        >
+      </nav>
+    </header>
+
+    <!-- Hero 區 -->
+    <section
+      class="relative h-[70vh] flex items-center overflow-hidden mt-16"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          alt="Paradise Beyond Environment"
+          class="w-full h-full object-cover object-center"
+          src="https://cdn.discordapp.com/attachments/1450006816875479163/1450840493586911405/ABS2GSmOy2s2kfez75pb8I5NvssKCaR5Caof7ZSa4gFBz3JF1v6JnpYJGcFSUhNmnxk1ReEvEqjkz5yKxAcl8uWORuIMrM2RlKhCwRw31QZZwJlX9TU5h9JcKiTxJnxoAzofNXSIpGA6z06ic3NcpSZSZr2duzC0mOjsRGQNcpSvw2V_qFJRpgs1024-rj.png"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-brown-dark/90 via-brown-dark/50 to-transparent"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="h-px w-12 bg-secondary"></span>
+            <span
+              class="text-secondary text-xl tracking-[0.2em] uppercase font-bold"
+              >ARG System // Project Start</span
+            >
+          </div>
+          <h1
+            class="text-7xl md:text-9xl font-display font-bold uppercase tracking-wide text-white leading-none mb-6 drop-shadow-2xl"
+          >
+            遊戲介紹
+          </h1>
+          <div class="border-l-4 border-secondary pl-4">
+            <p
+              class="text-lg md:text-2xl text-gray-200 font-medium leading-relaxed bg-black/40 backdrop-blur-sm p-4 md:p-6 clip-tactical"
+            >
+              一款結合實境解謎（ARG）與城市探索的創新作品。我們將桃園的文化地景轉化為遊戲舞台，邀請玩家跨越螢幕，親身走入那些被遺忘的故事之中。
+            </p>
+          </div>
+          <div class="mt-10 flex gap-4">
+            <a
+              href="download.html"
+              class="bg-white text-brown-dark hover:bg-secondary hover:text-white px-8 py-3 font-display text-xl font-bold tracking-widest uppercase clip-tactical transition-all duration-300"
+            >
+              開始探索
+            </a>
+            <div
+              class="hidden md:flex items-center gap-2 text-white/60 font-mono text-xs"
+            >
+              <span class="material-symbols-outlined text-lg">public</span>
+              LAT: 24.993 N / LONG: 121.301 E
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 文化轉譯 -->
+    <section class="py-20 md:py-32 relative">
+      <div
+        class="absolute left-1/2 top-0 bottom-0 w-px bg-primary/20 hidden md:block border-dashed border-l border-primary/30"
+      ></div>
+      <div class="container mx-auto px-6 relative">
+        <div class="flex flex-col items-center justify-center mb-20 text-center">
+          <span
+            class="text-primary text-xl tracking-[0.3em] uppercase mb-2 font-bold"
+            >Design Philosophy</span
+          >
+          <h2
+            class="text-5xl md:text-7xl font-bold text-brown-dark uppercase"
+          >
+            文化轉譯與實境探索
+          </h2>
+          <div class="w-24 h-1 bg-secondary mt-6"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div
+            class="order-2 md:order-1 space-y-8 bg-surface p-8 md:p-12 shadow-xl clip-tactical border-t-4 border-primary relative hover:border-secondary transition-colors duration-500"
+          >
+            <span
+              class="absolute -right-4 -top-8 text-[8rem] font-display font-bold text-surface-alt opacity-50 select-none"
+              >01</span
+            >
+            <h3
+              class="text-3xl font-bold text-secondary mb-4 flex items-center gap-3"
+            >
+              <span class="material-symbols-outlined text-secondary"
+                >psychology</span
+              >
+              解決文化斷層的挑戰
+            </h3>
+            <div class="text-gray-600 space-y-4">
+              <p>
+                面對數位時代的衝擊，傳統的在地故事面臨著被遺忘的危機。如何將深厚的文化底蘊轉化為年輕世代能夠接受的語言，是我們面臨的最大挑戰。
+              </p>
+              <p>
+                「世外桃源」採用創新的
+                <strong>ARG（侵入式實境互動）</strong>
+                形式，打破虛擬與現實的邊界。我們不只在螢幕上說故事，更將
+                <strong>桃園真實地景</strong>
+                ——如龍岡的眷村巷弄、觀音的古老廟宇、楊梅的客家小徑——轉化為玩家必須親臨現場才能解開的謎題關卡。
+              </p>
+            </div>
+          </div>
+
+          <div class="order-1 md:order-2 relative">
+            <div class="relative clip-tactical shadow-2xl">
+              <img
+                alt="Cultural Artifact"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKsPdU13MzIosuHEQH_r3LDjGiM0z5HHRy34LkZgWDv45RPBWASKCqIM8DZuGEw2c5XdxAwtgnPBSRH7u6K4E5K-tkdf6MsN_DQcV3gkG1KElYGXP-EbOsPNs_0FlJJCQyBXEAE5uMcf7eCADbHt6itV3gzZfsUHc_lSz0Z2zr43NkzADyCPIEKpu3QJTTf2iEqzHOrd_BmrDvVHXwYDf_Utn8tt9QFSFMUDGoASm_3TCnl6ivG_W22QKiaOrpx7G8yXLOBpYmARQ"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 在地傳說與地景 -->
+    <section class="py-20 md:py-32 bg-surface-alt clip-diagonal-top">
+      <div class="container mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-primary/20 pb-6"
+        >
+          <div>
+            <h2
+              class="text-5xl md:text-7xl font-bold text-brown-dark uppercase tracking-wide"
+            >
+              在地傳說與地景
+            </h2>
+            <p class="mt-4 text-xl text-primary font-bold">
+              Real Landscapes to Playable Zones
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- 龍岡 -->
+          <div
+            class="group bg-surface hover:bg-white border-t-4 border-secondary shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 clip-tactical"
+          >
+            <div class="h-56 overflow-hidden relative">
+              <img
+                alt="Longgang"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://cdn.discordapp.com/attachments/1431510703050719394/1450832431648079934/image.png"
+              />
+              <div
+                class="absolute top-3 left-3 z-20 bg-black/70 text-secondary px-2 py-1 text-xs font-mono border-l-2 border-secondary"
+              >
+                ZONE: LONGGANG
+              </div>
+            </div>
+            <div class="p-6 flex flex-col">
+              <h3 class="text-3xl font-bold text-brown-dark leading-none mb-4">
+                龍岡<br />異域故事館
+              </h3>
+              <p
+                class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow border-l-2 border-gray-100 pl-3"
+              >
+                這裡承載著滇緬孤軍的沈重記憶。遊戲將真實的眷村迷宮化為情報交換中心，玩家需在此解讀老兵留下的密碼。
+              </p>
+            </div>
+          </div>
+
+          <!-- 觀音 -->
+          <div
+            class="group bg-surface hover:bg-white border-t-4 border-primary shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 clip-tactical"
+          >
+            <div class="h-56 overflow-hidden relative">
+              <img
+                alt="GuanYin"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://cdn.discordapp.com/attachments/1431510703050719394/1450832456717697176/image.png"
+              />
+              <div
+                class="absolute top-3 left-3 z-20 bg-black/70 text-primary px-2 py-1 text-xs font-mono border-l-2 border-primary"
+              >
+                ZONE: GUANYIN
+              </div>
+            </div>
+            <div class="p-6 flex flex-col">
+              <h3 class="text-3xl font-bold text-brown-dark leading-none mb-4">
+                觀音<br />甘泉寺
+              </h3>
+              <p
+                class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow border-l-2 border-gray-100 pl-3"
+              >
+                傳說中擁有治癒力量的甘泉所在地。玩家將透過手機鏡頭，與現場的石獅、廟宇雕飾互動。
+              </p>
+            </div>
+          </div>
+
+          <!-- 楊梅 -->
+          <div
+            class="group bg-surface hover:bg-white border-t-4 border-accent shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 clip-tactical"
+          >
+            <div class="h-56 overflow-hidden relative">
+              <img
+                alt="Yangmei"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://cdn.discordapp.com/attachments/1431510703050719394/1450832483363979507/image.png"
+              />
+              <div
+                class="absolute top-3 left-3 z-20 bg-black/70 text-accent px-2 py-1 text-xs font-mono border-l-2 border-accent"
+              >
+                ZONE: YANGMEI
+              </div>
+            </div>
+            <div class="p-6 flex flex-col">
+              <h3 class="text-3xl font-bold text-brown-dark leading-none mb-4">
+                楊梅<br />富岡老街
+              </h3>
+              <p
+                class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow border-l-2 border-gray-100 pl-3"
+              >
+                充滿客家風情與鐵道記憶的小鎮。遊戲將老街的紅磚拱廊變為時空迴廊，蒐集散落的客家歌謠片段。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-white text-center py-6 mt-20">
+      <p class="opacity-70 text-sm">
+        © 2025 世外桃源 Paradise Beyond — 桃園文化 ARG 專案
+      </p>
+    </footer>
+  </body>
+</html>

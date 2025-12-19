@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>網站底部 | 世外桃源 Paradise Beyond</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF9800",
+              secondary: "#795548",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Noto Sans TC", sans-serif;
+      }
+      .clip-tech-btn {
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#2c1004] text-white">
+    <footer
+      class="relative border-t border-secondary/20 bg-[#2c1004] text-white"
+    >
+      <!-- 頂部漸層線 -->
+      <div
+        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-primary to-secondary"
+      ></div>
+
+      <div class="container mx-auto px-6 py-16">
+        <div
+          class="flex flex-col md:flex-row justify-between gap-12 mb-16"
+        >
+          <!-- 左側品牌介紹 -->
+          <div class="md:w-1/3">
+            <a href="index.html" class="flex items-center gap-3 mb-6">
+              <span class="material-symbols-outlined text-4xl text-primary"
+                >public</span
+              >
+              <span
+                class="text-5xl font-bold tracking-wider uppercase text-white"
+                >世外桃源</span
+              >
+            </a>
+            <p
+              class="text-stone-400 text-sm leading-loose max-w-sm"
+            >
+              穿梭於虛擬與現實，探索桃園的無限可能。我們致力於修復被遺忘的記憶，為這座城市注入新的生命與故事。
+            </p>
+
+            <!-- 社群圖示 -->
+            <div class="mt-8 flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white rounded clip-tech-btn group"
+              >
+                <span
+                  class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform"
+                  >public</span
+                >
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white rounded clip-tech-btn group"
+              >
+                <span
+                  class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform"
+                  >hub</span
+                >
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white rounded clip-tech-btn group"
+              >
+                <span
+                  class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform"
+                  >photo_camera</span
+                >
+              </a>
+            </div>
+          </div>
+
+          <!-- 右側導覽連結 -->
+          <div class="md:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+              <h4
+                class="text-xl font-bold text-stone-200 uppercase tracking-widest mb-6"
+              >
+                遊戲導覽
+              </h4>
+              <ul class="space-y-3 text-sm text-stone-400">
+                <li>
+                  <a href="news.html" class="hover:text-primary transition-colors"
+                    >版本資訊</a
+                  >
+                </li>
+                <li>
+                  <a href="intro.html" class="hover:text-primary transition-colors"
+                    >傳說列表</a
+                  >
+                </li>
+                <li>
+                  <a href="intro.html" class="hover:text-primary transition-colors"
+                    >地圖導覽</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-primary transition-colors"
+                    >文創商品</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="text-xl font-bold text-stone-200 uppercase tracking-widest mb-6"
+              >
+                玩家支援
+              </h4>
+              <ul class="space-y-3 text-sm text-stone-400">
+                <li><a href="#" class="hover:text-primary transition-colors">客服中心</a></li>
+                <li><a href="#" class="hover:text-primary transition-colors">問題回報</a></li>
+                <li><a href="#" class="hover:text-primary transition-colors">帳號安全</a></li>
+                <li><a href="#" class="hover:text-primary transition-colors">家長監護</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="text-xl font-bold text-stone-200 uppercase tracking-widest mb-6"
+              >
+                法律聲明
+              </h4>
+              <ul class="space-y-3 text-sm text-stone-400">
+                <li><a href="#" class="hover:text-primary transition-colors">隱私權政策</a></li>
+                <li><a href="#" class="hover:text-primary transition-colors">使用條款</a></li>
+                <li><a href="#" class="hover:text-primary transition-colors">Cookie 政策</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 底部資訊列 -->
+        <div
+          class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-stone-500 font-mono"
+        >
+          <p class="text-center md:text-left">
+            © 2024 Sangzi Studio. All Rights Reserved. Paradise Beyond logos are
+            trademarks of Sangzi Studio.
+          </p>
+          <div class="mt-4 md:mt-0 flex gap-6">
+            <span
+              class="hover:text-white cursor-pointer transition-colors"
+              >English</span
+            >
+            <span
+              class="hover:text-white cursor-pointer text-white font-bold transition-colors"
+              >繁體中文</span
+            >
+            <span
+              class="hover:text-white cursor-pointer transition-colors"
+              >日本語</span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

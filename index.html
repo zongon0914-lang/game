@@ -1,99 +1,175 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>世外桃源 Paradise Beyond</title>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Teko:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
-    
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: "class",
         theme: {
           extend: {
             colors: {
-              primary: {
-                DEFAULT: "#f97316",
-                hover: "#ea580c",
-                light: "#fb923c",
-                dark: "#c2410c",
-              },
-              secondary: {
-                DEFAULT: "#78350f",
-                hover: "#92400e",
-                light: "#b45309",
-              },
-              accent: {
-                DEFAULT: "#f59e0b",
-                light: "#fbbf24",
-              },
-              surface: {
-                DEFAULT: "#fff7ed",
-                alt: "#ffedd5",
-                dark: "#292524",
-              },
-              brown: {
-                dark: "#431407",
-                earth: "#5d4037",
-              },
-              earth: {
-                50: '#fffaf5',
-                100: '#fff2e5',
-                200: '#ffe4c8',
-                300: '#fdcea0',
-                400: '#dcb080',
-                500: '#b45309',
-                600: '#92400e',
-                700: '#713f12',
-                800: '#552e0c',
-                900: '#431407',
-                950: '#280c04',
-              }
+              primary: "#FF9800",
+              secondary: "#795548",
+              surface: "#FAFAFA",
+              "brown-dark": "#3b1d0a",
             },
-            fontFamily: {
-              display: ["Teko", "Roboto Condensed", "sans-serif"],
-              body: ["Noto Sans TC", "sans-serif"],
-            },
-            backgroundImage: {
-                'grid-pattern': "linear-gradient(to right, rgba(254, 215, 170, 0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(254, 215, 170, 0.5) 1px, transparent 1px)",
-                'tech-grid': "linear-gradient(to right, rgba(124, 45, 18, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(124, 45, 18, 0.03) 1px, transparent 1px)",
-            }
           },
         },
       };
     </script>
-    <style type="text/tailwindcss">
-      @layer utilities {
-        .clip-diagonal { clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 0 100%); }
-        .clip-tech-btn { clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); }
-        .clip-tag { clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%); }
-        .clip-tactical { clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); }
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Optional: custom font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Noto Sans TC", sans-serif;
+      }
+      .clip-tech-btn {
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+      }
+      .clip-diagonal {
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+      }
+      .clip-tag {
+        clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
       }
     </style>
-
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@19.0.0",
-        "react/": "https://esm.sh/react@19.0.0/",
-        "react-dom": "https://esm.sh/react-dom@19.0.0",
-        "react-dom/": "https://esm.sh/react-dom@19.0.0/",
-        "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-        "react-router-dom": "https://esm.sh/react-router-dom@7.1.5"
-      }
-    }
-    </script>
   </head>
-  <body class="bg-surface text-brown-dark antialiased">
-    <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+
+  <body class="bg-surface text-stone-900">
+    <!-- 導覽列 -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md text-white flex justify-between items-center px-6 py-4"
+    >
+      <a href="index.html" class="text-2xl font-bold tracking-widest"
+        >世外桃源</a
+      >
+      <nav class="space-x-6 uppercase text-sm">
+        <a href="intro.html" class="hover:text-primary">遊戲介紹</a>
+        <a href="about.html" class="hover:text-primary">關於我們</a>
+        <a href="news.html" class="hover:text-primary">最新消息</a>
+        <a href="events.html" class="hover:text-primary">線上活動</a>
+        <a
+          href="download.html"
+          class="bg-primary text-white px-3 py-1 rounded hover:bg-orange-600"
+          >立即下載</a
+        >
+      </nav>
+    </header>
+
+    <!-- Hero 區 -->
+    <section
+      class="relative h-screen min-h-[700px] flex items-center justify-center pt-20 overflow-hidden bg-stone-900"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://cdn.discordapp.com/attachments/1450006816875479163/1450837935950790716/image.png"
+          alt="Hero Background - Dragon and Lanterns"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/40 to-black/60"
+        ></div>
+      </div>
+
+      <div
+        class="relative z-20 container mx-auto px-4 flex flex-col items-center text-center mt-10"
+      >
+        <div class="mb-8 animate-fade-in-up">
+          <span
+            class="inline-block py-1 px-4 border border-orange-500/50 text-orange-400 bg-black/60 backdrop-blur-md text-xs font-bold tracking-[0.2em] uppercase clip-tech-btn shadow-[0_0_15px_rgba(249,115,22,0.3)]"
+          >
+            最新情報：光之碎片
+          </span>
+        </div>
+
+        <h1
+          class="text-8xl md:text-[10rem] font-black uppercase tracking-tighter text-white drop-shadow-2xl leading-[0.9] mb-4"
+        >
+          世外<span class="text-primary">桃源</span>
+        </h1>
+
+        <h2
+          class="text-3xl md:text-5xl font-bold uppercase tracking-[0.2em] text-primary mb-6 drop-shadow-lg flex flex-col md:flex-row items-center gap-2 md:gap-4"
+        >
+          光之碎片
+          <span class="text-white/50 text-2xl hidden md:inline">×</span>
+          <span class="md:hidden text-white/50 text-sm">×</span> 桃園地景
+        </h2>
+
+        <p
+          class="mt-4 max-w-2xl mx-auto text-xl md:text-2xl text-stone-100 font-medium tracking-wide drop-shadow-md leading-relaxed"
+        >
+          修復被遺忘的桃園傳說，體驗在地文化的<br />
+          <span class="text-primary font-bold">溫情與智慧</span>
+        </p>
+
+        <div
+          class="mt-12 flex flex-col sm:flex-row gap-6 w-full max-w-lg mx-auto"
+        >
+          <a
+            href="download.html"
+            class="flex-1 group relative flex items-center justify-center bg-primary hover:bg-orange-600 text-white py-4 px-8 text-xl font-bold uppercase tracking-widest transition-all duration-300 shadow-lg clip-tech-btn shadow-orange-500/20 hover:shadow-orange-500/40 transform hover:-translate-y-1"
+          >
+            <span class="mr-2">立即下載</span>
+            <span
+              class="material-symbols-outlined group-hover:translate-y-1 transition-transform"
+              >download</span
+            >
+          </a>
+
+          <a
+            href="events.html"
+            class="flex-1 group relative flex items-center justify-center bg-black/40 backdrop-blur-sm border border-white/20 hover:bg-black/60 hover:border-white/40 text-white py-4 px-8 text-xl font-bold uppercase tracking-widest transition-all duration-300 clip-tech-btn transform hover:-translate-y-1"
+          >
+            <span class="mr-2">線上免費試玩</span>
+            <span
+              class="material-symbols-outlined group-hover:scale-110 transition-transform"
+              >sports_esports</span
+            >
+          </a>
+        </div>
+
+        <figure
+          class="mt-16 w-full max-w-6xl mx-auto rounded-3xl overflow-hidden border border-white/15 bg-white/5 backdrop-blur-lg shadow-[0_25px_80px_rgba(0,0,0,0.35)]"
+        >
+          <img
+            src="https://cdn.discordapp.com/attachments/1450006816875479163/1450837935950790716/image.png"
+            alt="青龍穿梭在燈籠街巷上空的主視覺"
+            class="w-full h-full object-cover"
+          />
+          <figcaption
+            class="px-6 py-4 text-sm text-white/80 bg-gradient-to-r from-black/50 to-black/30"
+          >
+            世外桃源《光之碎片》主視覺：青龍指引四名冒險者穿梭桃園的燈籠街巷。
+          </figcaption>
+        </figure>
+      </div>
+
+      <div
+        class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-surface to-transparent pointer-events-none"
+      ></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white text-center py-6">
+      <p class="opacity-70 text-sm">
+        © 2025 世外桃源 Paradise Beyond — 桃園文化 ARG 專案
+      </p>
+    </footer>
   </body>
 </html>
